@@ -161,8 +161,8 @@
       },
       {
         "id":"14",
-        "rule":"(?:#@~\\^\\w+)|(?:\\w+script:|@import[^\\w]|;base64|base64,)|(?:\\w\\s*\\([\\w\\s]+,[\\w\\s]+,[\\w\\s]+,[\\w\\s]+,[\\w\\s]+,[\\w\\s]+\\))",
-        "description":"Detects possible includes, VBSCript\/JScript encodeed and packed functions",
+        "rule":"(?:#@~\\^\\w+)|(?:\\w+script:|@?import\\s*\\(?|;base64|base64,)|(?:\\w\\s*\\([\\w\\s]+,[\\w\\s]+,[\\w\\s]+,[\\w\\s]+,[\\w\\s]+,[\\w\\s]+\\))",
+        "description":"Detects possible includes, VBSCript\/JScript encoded and packed functions",
         "tags":{
           "tag":[
             "xss",
