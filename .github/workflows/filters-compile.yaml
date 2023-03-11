@@ -1,0 +1,34 @@
+name: Filters Compile
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "src/filters.yaml"
+  pull_request:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.18'
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: |
+          go install github.com/mikefarah/yq/v4@latest
+          pip install yamllint
+          sudo apt install jq -y
+      - run: yamllint src
+      - run: yq -o=j src/filters.yaml | jq -c > dist/filters.json
+      - run: |
+          [[ "$(git status -s | wc -l)" == 0 ]] && exit 0
+          git config --local user.email "ghost@users.noreply.github.com"
+          git config --local user.name "ghost"
+          git add dist/; git commit -m ":robot: compile filters [$(date)]"
+          git push origin master
+        if: github.event_name == 'push'
