@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Common Web Attack threat rules",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "rule": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "impact": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "rule",
+          "description",
+          "impact"
+        ]
+      }
+    }
+  },
+  "required": [
+    "filters"
+  ]
+}
