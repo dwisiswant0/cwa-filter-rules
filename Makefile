@@ -5,7 +5,10 @@ FILTERS_SCHEMA := "src/filters.schema.json"
 lint:
 	@yamllint $(FILTERS_IN)
 
-compile: lint
+validate:
+	@python validate.py
+
+compile: lint validate
 	@yq -o=j $(FILTERS_IN) | jq -c > $(FILTERS_OUT)
 
 test:
