@@ -34,8 +34,7 @@ filters:
 
   - id: 5
     rule: (?:\W\s*hash\s*[^\w\s-])|(?:\w+=\W*[^,]*,[^\s(]\s*\()|(?:\?"[^\s"]":)|(?:(?<!\/)__[a-z]+__)|(?:(?:^|[\s)\]\}])(?:s|g)etter\s*=)
-    description: Detects hash-contained xss payload attacks, setter usage and
-      property overloading
+    description: Detects hash-contained xss payload attacks, setter usage and property overloading
     tags:
       - xss
       - csrf
@@ -43,8 +42,7 @@ filters:
 
   - id: 6
     rule: (?:with\s*\(\s*.+\s*\)\s*\w+\s*\()|(?:(?:do|while|for)\s*\([^)]*\)\s*\{)|(?:\/[\w\s]*\[\W*\w)
-    description: Detects self contained xss via with(), common loops and regex to
-      string conversion
+    description: Detects self contained xss via with(), common loops and regex to string conversion
     tags:
       - xss
       - csrf
@@ -191,8 +189,7 @@ filters:
 
   - id: 22
     rule: (?:=\s*(?:top|this|window|content|self|frames|_content))|(?:\/\s*[gimx]*\s*[)}])|(?:[^\s]\s*=\s*script)|(?:\.\s*constructor)|(?:default\s+xml\s+namespace\s*=)|(?:\/\s*\+[^+]+\s*\+\s*\/)
-    description: Detects advanced XSS probings via Script(), RexExp, constructors
-      and XML namespaces
+    description: Detects advanced XSS probings via Script(), RexExp, constructors and XML namespaces
     tags:
       - xss
       - csrf
@@ -202,8 +199,7 @@ filters:
 
   - id: 23
     rule: (?:\.\s*\w+\W*=)|(?:\W\s*(?:location|document)\s*\W[^({[;]+[({[;])|(?:\(\w+\?[:\w]+\))|(?:\w{2,}\s*=\s*\d+[^&\w]\w+)|(?:\]\s*\(\s*\w+)
-    description: Detects JavaScript location/document property access and window
-      access obfuscation
+    description: Detects JavaScript location/document property access and window access obfuscation
     tags:
       - xss
       - csrf
@@ -243,8 +239,7 @@ filters:
 
   - id: 28
     rule: (?:firefoxurl:\w+\|)|(?:(?:file|res|telnet|nntp|news|mailto|chrome)\s*:\s*[%&#xu\/]+)|(wyciwyg|firefoxurl\s*:\s*\/\s*\/)
-    description: Detects IE firefoxurl injections, cache poisoning attempts and
-      local file inclusion/execution
+    description: Detects IE firefoxurl injections, cache poisoning attempts and local file inclusion/execution
     tags:
       - xss
       - rfe
@@ -432,8 +427,7 @@ filters:
 
   - id: 50
     rule: (?:(select|;)\s+(?:benchmark|if|sleep)\s*?\(\s*\(?\s*\w+)
-    description: Detects SQL benchmark and sleep injection attempts including
-      conditional queries
+    description: Detects SQL benchmark and sleep injection attempts including conditional queries
     tags:
       - sqli
       - id
@@ -465,17 +459,14 @@ filters:
 
   - id: 54
     rule: (?:select\s*pg_sleep)|(?:waitfor\s*delay\s?"+\s?\d)|(?:;\s*shutdown\s*(?:;|--|#|\/\*|{))
-    description: Detects Postgres pg_sleep injection, waitfor delay attacks and
-      database shutdown attempts
+    description: Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts
     tags:
       - sqli
       - id
     impact: 5
 
   - id: 55
-    rule: (?:\sexec\s+xp_cmdshell)|(?:"\s*!\s*["\w])|(?:from\W+information_schema\W)|(?:(?:(?:current_)?user|database|schema|connection_id)\s*\([^\)]*)|(?:";?\s*(?:select|union|having)\s*[^\s])|(?:\wiif\s*\()|(?:exec\s+master\.)|(?:union
-      select
-      @)|(?:union[\w(\s]*select)|(?:select.*\w?user\()|(?:into[\s+]+(?:dump|out)file\s*")
+    rule: (?:\sexec\s+xp_cmdshell)|(?:"\s*!\s*["\w])|(?:from\W+information_schema\W)|(?:(?:(?:current_)?user|database|schema|connection_id)\s*\([^\)]*)|(?:";?\s*(?:select|union|having)\s*[^\s])|(?:\wiif\s*\()|(?:exec\s+master\.)|(?:union select @)|(?:union[\w(\s]*select)|(?:select.*\w?user\()|(?:into[\s+]+(?:dump|out)file\s*")
     description: Detects MSSQL code execution and information gathering attempts
     tags:
       - sqli
@@ -625,8 +616,7 @@ filters:
 
   - id: 76
     rule: (?:(union(.*)select(.*)from))
-    description: Looking for basic sql injection. Common attack string for mysql,
-      oracle and others.
+    description: Looking for basic sql injection. Common attack string for mysql, oracle and others.
     tags:
       - sqli
       - id
@@ -634,8 +624,7 @@ filters:
 
   - id: 77
     rule: (?:^(-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|2.2250738585072007e-308|1e309)$)
-    description: Looking for intiger overflow attacks, these are taken from
-      skipfish, except 2.2250738585072007e-308 is the "magic number" crash
+    description: Looking for intiger overflow attacks, these are taken from skipfish, except 2.2250738585072007e-308 is the "magic number" crash
     tags:
       - sqli
       - id

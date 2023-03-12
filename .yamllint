@@ -19,6 +19,7 @@ rules:
   hyphens: enable
   indentation:
     indent-sequences: consistent
+    check-multi-line-strings: true
   key-duplicates: enable
   key-ordering: disable
   line-length: disable
