@@ -23,8 +23,7 @@ jobs:
           go install github.com/mikefarah/yq/v4@latest
           pip install yamllint
           sudo apt install jq -y
-      - run: yamllint src
-      - run: yq -o=j src/filters.yaml | jq -c > dist/filters.json
+      - run: make compile
       - run: |
           [[ "$(git status -s | wc -l)" == 0 ]] && exit 0
           git config --local user.email "ghost@users.noreply.github.com"

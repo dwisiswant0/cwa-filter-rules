@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: 16
       - run: npm i -g ajv-cli
-      - run: ajv test -s src/filters.schema.json -d dist/filters.json --valid
+      - run: make test
