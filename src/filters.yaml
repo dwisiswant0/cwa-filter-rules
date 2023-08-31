@@ -644,3 +644,13 @@ filters:
       - ssrf
       - oob
     impact: 10
+
+  - id: 80
+    rule: (?i)(?:on(?:webkitanimationiteration|(?:(?:webkitanimation|(?:select|drag))s|t(?:ransition|ouch)s)tart|(?:webkit(?:transi|anima)tione|t(?:ransition|ouch)e|scrolle)nd|(?:beforescriptexecut|afterscriptexecut|(?:p(?:ointerrawupda|(?:opsta|as))|timeupda)t|b(?:eforetoggl|ounc)|(?:pointer|drag)leav|(?:pointer|touch)mov|mouse(?:lea|mo)v|pa(?:gehid|us)|resiz|clos)e|(?:mozfullscreen|fullscreen|(?:selec|dura)tion|hash|cue)change|unhandledrejection|a(?:nimation(?:iteration|cancel|start|end)|fterprint|uxclick)|transitioncancel|toggle\(popover\)|loaded(?:meta)?data|(?:canplaythroug|searc)h|(?:transitionru|(?:pointer|key)dow|mousedow|(?:focus|beg)i)n|pointerenter|(?:beforeunloa|invali|(?:seek|end)e|unloa)d|volumechange|c(?:(?:ontextmenu|ut)|opy)|(?:pointerov|drag(?:ent|ov))er|(?:(?:beforeinp|focuso)u|beforeprin|pointerou|beforecu|mouseou|submi|re(?:pea|se)|inpu)t|beforecopy|mouse(?:enter|over|up)|(?:mouse)?wheel|ratechange|(?:pointeru|keyu|dro)p|pageshow|progress|keypress|dblclick|canplay|dragend|playing|s(?:eeking|how)|message|s(?:croll|elect)|toggle|finish|change|focus|(?:erro|blu)r|click|start|drag|load|play|end))\s*?=
+    description: Detects common event attributes and properties
+    tags:
+      - xss
+      - csrf
+      - id
+      - rfe
+    impact: 6
