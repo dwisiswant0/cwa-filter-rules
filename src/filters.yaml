@@ -70,7 +70,7 @@ filters:
       - xss
       - csrf
     impact: 5
-    pcre: true  
+    pcre: true
 
   - id: 9
     rule: (?i)(?:\\u(?:\{(0{1,})?[a-f0-9]{2}\}|00[a-f0-9]{2}))|(?:\\x0*[a-f0-9]{2})|(?:\\\d{2,3})
