@@ -25,13 +25,17 @@
           },
           "impact": {
             "type": "number"
+          },
+          "pcre": {
+            "type": "boolean"
           }
         },
         "required": [
           "id",
           "rule",
           "description",
-          "impact"
+          "impact",
+          "pcre"
         ]
       }
     }
