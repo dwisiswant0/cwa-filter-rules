@@ -7,6 +7,7 @@ on:
     paths:
       - "src/filters.yaml"
   pull_request:
+  workflow_dispatch:
 
 jobs:
   compile:
