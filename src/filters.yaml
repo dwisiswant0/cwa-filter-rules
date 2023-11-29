@@ -638,7 +638,7 @@ filters:
     impact: 10
 
   - id: 79
-    rule: ((burpcollaborator|pipedream)\.net|canarytokens\.com|oast\.(online|(liv|sit|m)e|fun|pro))
+    rule: ((burpcollaborator|pipedream)\.net|(canarytokens|requestrepo)\.com|oast\.(online|(liv|sit|m)e|fun|pro))
     description: Detects out-of-band (OOB) interaction or Server-Side Request Forgery (SSRF) attack attempts
     tags:
       - ssrf
